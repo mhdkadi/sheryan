@@ -29,5 +29,3 @@ class previous_orders extends StatelessWidget {
         ));
   }
 }
-
-text("ali")
