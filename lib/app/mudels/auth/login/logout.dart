@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class profile extends StatelessWidget {
-  const profile({super.key});
+class logout extends StatelessWidget {
+  const logout({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const Drawer(),
       appBar: AppBar(
-        title: const Text("Paramedic Profile"),
+        title: const Text("Logout"),
         centerTitle: true,
       ),
       body: SizedBox(

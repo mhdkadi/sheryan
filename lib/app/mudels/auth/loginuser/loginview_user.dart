@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
-class previous_orders extends StatelessWidget {
-  const previous_orders({super.key});
+class loginview_user extends StatelessWidget {
+  const loginview_user({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
       appBar: AppBar(
-        title: const Text("Previous Orders"),
+        title: const Text("Login"),
         centerTitle: true,
       ),
       body: SizedBox(
@@ -19,10 +18,10 @@ class previous_orders extends StatelessWidget {
             const SizedBox(height: 30),
             Image.asset(
               "assets/images/ambulance.png",
-              width: 250,
-              height: 250,
+              width: 150,
+              height: 150,
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 40),
             const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -33,18 +32,20 @@ class previous_orders extends StatelessWidget {
                 hintText: "Enter username",
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(
+              height: 30,
+            ),
             const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 label: Text(
-                  "Number Phone",
+                  "Phone Number",
                   style: TextStyle(fontSize: 20),
                 ),
-                hintText: "Enter Number Phone",
+                hintText: "Enter Phone Number",
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 40),
             const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -52,32 +53,10 @@ class previous_orders extends StatelessWidget {
                   "Address",
                   style: TextStyle(fontSize: 20),
                 ),
-                hintText: "Enter Your Address",
+                hintText: "Enter Address ",
               ),
             ),
-            const SizedBox(height: 30),
-            const TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                label: Text(
-                  "Hospital",
-                  style: TextStyle(fontSize: 20),
-                ),
-                hintText: "Enter Your Hospital",
-              ),
-            ),
-            const SizedBox(height: 30),
-            const TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                label: Text(
-                  "Password",
-                  style: TextStyle(fontSize: 20),
-                ),
-                hintText: "Enter Password",
-              ),
-            ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 100),
             Center(
               child: SizedBox(
                 width: 150,
@@ -85,9 +64,9 @@ class previous_orders extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   child: const Text(
-                    "Regester",
+                    "Enter",
                     style: TextStyle(
-                      fontSize: 17,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
