@@ -21,42 +21,44 @@ class loginview_user extends StatelessWidget {
               width: 150,
               height: 150,
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 30),
             const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 label: Text(
                   "username",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 25),
                 ),
                 hintText: "Enter username",
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 50,
             ),
             const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 label: Text(
                   "Phone Number",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 25),
                 ),
                 hintText: "Enter Phone Number",
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(
+              height: 50,
+            ),
             const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 label: Text(
                   "Address",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 25),
                 ),
-                hintText: "Enter Address ",
+                hintText: "Enter Address",
               ),
             ),
-            const SizedBox(height: 100),
+            const SizedBox(height: 50),
             Center(
               child: SizedBox(
                 width: 150,

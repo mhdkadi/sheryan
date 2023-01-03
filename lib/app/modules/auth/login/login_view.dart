@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
-class order extends StatelessWidget {
-  const order({super.key});
+class LoginView extends StatelessWidget {
+  const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
       appBar: AppBar(
-        title: const Text("Order"),
+        title: const Text("Login"),
         centerTitle: true,
       ),
       body: SizedBox(
@@ -19,32 +18,23 @@ class order extends StatelessWidget {
             const SizedBox(height: 30),
             Image.asset(
               "assets/images/ambulance.png",
-              width: 250,
-              height: 250,
+              width: 150,
+              height: 150,
             ),
             const SizedBox(height: 30),
             const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 label: Text(
-                  "Patient Name",
+                  "username",
                   style: TextStyle(fontSize: 25),
                 ),
-                hintText: "**********",
+                hintText: "Enter username",
               ),
             ),
-            const SizedBox(height: 30),
-            const TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                label: Text(
-                  "State",
-                  style: TextStyle(fontSize: 25),
-                ),
-                hintText: "********** ",
-              ),
+            const SizedBox(
+              height: 50,
             ),
-            const SizedBox(height: 30),
             const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -52,18 +42,7 @@ class order extends StatelessWidget {
                   "Password",
                   style: TextStyle(fontSize: 25),
                 ),
-                hintText: "********** ",
-              ),
-            ),
-            const SizedBox(height: 30),
-            const TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                label: Text(
-                  "Address",
-                  style: TextStyle(fontSize: 25),
-                ),
-                hintText: "********** ",
+                hintText: "Enter Password",
               ),
             ),
             const SizedBox(height: 50),
@@ -74,7 +53,7 @@ class order extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   child: const Text(
-                    "Show Location",
+                    "Enter",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
