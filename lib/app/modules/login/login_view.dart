@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -7,7 +8,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Login"),
+        title: const Text("تسجيل الدخول"),
         centerTitle: true,
       ),
       body: SizedBox(
@@ -26,24 +27,28 @@ class LoginView extends StatelessWidget {
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 label: Text(
-                  "username",
+                  "الاسم",
                   style: TextStyle(fontSize: 25),
                 ),
-                hintText: "Enter username",
+                hintText: "أدخل الاسم",
               ),
             ),
             const SizedBox(
               height: 50,
             ),
             const TextField(
+              obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 label: Text(
-                  "Password",
+                  "كلمة المرور",
                   style: TextStyle(fontSize: 25),
                 ),
-                hintText: "Enter Password",
+                hintText: "أدخل كلمة المرور",
               ),
+            ),
+            const SizedBox(
+              height: 80,
             ),
             const SizedBox(height: 50),
             Center(
@@ -51,9 +56,11 @@ class LoginView extends StatelessWidget {
                 width: 150,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.offAllNamed("/mainHome");
+                  },
                   child: const Text(
-                    "Enter",
+                    "تسجيل الدخول",
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

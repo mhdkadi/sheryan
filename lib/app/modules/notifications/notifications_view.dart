@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class notification_user extends StatelessWidget {
-  const notification_user({super.key});
+class NotificationUser extends StatelessWidget {
+  const NotificationUser({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Notificatoin"),
+        title: const Text("الاشعارات"),
         centerTitle: true,
       ),
       body: SizedBox(
@@ -29,7 +29,7 @@ class notification_user extends StatelessWidget {
                 size: 40,
               ),
               title: const Text(
-                " New Notification",
+                " إشعارات جديدة",
                 style: TextStyle(fontSize: 24),
               ),
               subtitle: const Text(" new notification from admin to paramedic"),
