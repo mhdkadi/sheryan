@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sheryan/app/modules/login/login_controller.dart';
 
 class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+  LoginView({super.key});
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
         title: const Text("تسجيل الدخول"),
         centerTitle: true,
@@ -23,8 +27,9 @@ class LoginView extends StatelessWidget {
               height: 150,
             ),
             const SizedBox(height: 30),
-            const TextField(
-              decoration: InputDecoration(
+            TextField(
+              controller: userNameController,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 label: Text(
                   "الاسم",
@@ -36,9 +41,9 @@ class LoginView extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            const TextField(
-              obscureText: true,
-              decoration: InputDecoration(
+            TextField(
+              controller: passwordController,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 label: Text(
                   "كلمة المرور",
@@ -55,18 +60,29 @@ class LoginView extends StatelessWidget {
               child: SizedBox(
                 width: 150,
                 height: 50,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Get.offAllNamed("/mainHome");
-                  },
-                  child: const Text(
-                    "تسجيل الدخول",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+                child: GetBuilder<LoginController>(builder: (controller) {
+                  return ElevatedButton(
+                    onPressed: controller.isLoading
+                        ? null
+                        : () {
+                            controller.login(
+                              username: userNameController.text,
+                              password: passwordController.text,
+                            );
+                          },
+                    child: controller.isLoading
+                        ? const CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : const Text(
+                            "تسجيل الدخول",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                  );
+                }),
               ),
             ),
           ],

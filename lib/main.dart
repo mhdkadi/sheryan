@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: "/login",
-          page: () => const LoginView(),
+          page: () => LoginView(),
           binding: LoginBinding(),
         ),
       ],
