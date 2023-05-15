@@ -1,26 +1,26 @@
 class PathologicalCase {
-  final int id;
-  final int level;
+  final String id;
+  final String level;
   final String name;
+
   PathologicalCase({
     required this.id,
     required this.level,
     required this.name,
   });
-  @override
-  bool operator ==(other) {
-    if (other is PathologicalCase) {
-      if (other.id == id && other.level == level && other.name == name) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
-  }
 
-  @override
-  // TODO: implement hashCode
-  int get hashCode => super.hashCode;
+  factory PathologicalCase.fromMap(Map<String, dynamic> json) =>
+      PathologicalCase(
+        id: json["_id"],
+        level: json["level"],
+        name: json["name"],
+      );
+
+  Map<String, dynamic> toMap() => {
+        "_id": id,
+        "level": level,
+        "name": name,
+      };
+  static List<PathologicalCase> pathologicalCases(List data) =>
+      data.map((e) => PathologicalCase.fromMap(e)).toList();
 }
