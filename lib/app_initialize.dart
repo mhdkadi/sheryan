@@ -12,9 +12,9 @@ Future _preInitializations() async {
     }
     HttpOverrides.global = MyHttpOverrides();
     // await initializeAwesomeNotifications();
-    FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
-    await NotificationService.instance.initializeNotifications();
-    DataHelper.packageInfo = await PackageInfo.fromPlatform();
+    // FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+    // await NotificationService.instance.initializeNotifications();
+    // DataHelper.packageInfo = await PackageInfo.fromPlatform();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,

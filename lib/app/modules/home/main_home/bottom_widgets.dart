@@ -48,9 +48,9 @@ Widget orderWidget({
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Row(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
+                              children: const [
                                 Icon(
                                   Icons.keyboard_arrow_down_rounded,
                                   color: AppColors.font,

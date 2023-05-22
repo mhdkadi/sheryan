@@ -2,18 +2,14 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bot_toast/bot_toast.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:local_database/config/main_service.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:sheryan/app/core/services/notifications/firebase_cloud_messaging.dart';
 import 'package:sheryan/app/modules/auth/auth_module.dart';
 
 import 'app/core/constants/globals.dart';
-import 'app/core/helpers/data_helper.dart';
 import 'app/core/theme/colors.dart';
 import 'app/core/theme/theme.dart';
 import 'app/core/utils/logger.dart';
@@ -44,7 +40,7 @@ class _MainWidgetState extends State<MainWidget> {
       initialRoute: AuthModule.authInitialRoute,
       getPages: AppPages.appRoutes,
       initialBinding: AppInitialBindings(),
-      debugShowCheckedModeBanner: appMode != AppMode.release,
+      debugShowCheckedModeBanner: false,
       enableLog: appMode != AppMode.release,
       theme: CustomTheme.lightTheme(context),
       builder: BotToastInit(),

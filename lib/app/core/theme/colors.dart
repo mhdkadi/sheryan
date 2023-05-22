@@ -12,7 +12,7 @@ class AppColors {
   static const Color background = Color(0xff011c27);
   static const Color greenBackground = Color(0xff12201D);
   static const Color redBackground = Color.fromARGB(255, 34, 17, 17);
-  static const Color gray = Color(0xffE6E7E8);
+  static const Color gray = Color.fromARGB(255, 187, 187, 187);
   static const Color backgroundTextFilled = Color(0xff222224);
   static const Color font = Color(0xffE6E7E8);
   static const Color codeInput = Color(0xffE6E7E8);
