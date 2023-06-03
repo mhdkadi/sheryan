@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sheryan/app/core/constants/request_routes.dart';
+import 'package:sheryan/app/core/models/hospital_model.dart';
 import 'package:sheryan/app/core/models/notification_model.dart';
 import 'package:sheryan/app/core/models/order_model.dart';
 import 'package:sheryan/app/core/models/pathological_case_model.dart';
@@ -43,6 +44,15 @@ class ConstantsRepository extends RepositoryInterface {
       });
       return PathologicalCase.pathologicalCases(
           response.data["pathologicalCases"]);
+    } catch (error) {
+      throw ExceptionHandler(error);
+    }
+  }
+
+  Future<List<Hospital>> hospitals() async {
+    try {
+      Response response = await dio.get(RequestRoutes.hospital);
+      return Hospital.hospitals(response.data);
     } catch (error) {
       throw ExceptionHandler(error);
     }

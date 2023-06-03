@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sheryan/app/core/helpers/data_helper.dart';
+import 'package:sheryan/app/core/models/hospital_model.dart';
 import 'package:sheryan/app/core/models/pathological_case_model.dart';
 import 'package:sheryan/app/core/repositories/constants_repository.dart';
 import 'package:sheryan/app/core/repositories/user_repository.dart';
@@ -27,6 +28,7 @@ class MainHomeController extends GetxStateController
     getLastState();
     updateCameraPosition();
     getPathologicalCases();
+    getHospitals();
     super.onInit();
   }
 
@@ -71,6 +73,19 @@ class MainHomeController extends GetxStateController
       requestType: RequestType.getData,
       function: () async {
         pathologicalCases = await constantsRepository.pathologicalCases();
+        return null;
+      },
+    );
+  }
+
+  String hospitalType = "حكومي";
+  List<Hospital> hospitals = [];
+  Future<void> getHospitals() async {
+    await requestMethod(
+      ids: ["getHospitals"],
+      requestType: RequestType.getData,
+      function: () async {
+        hospitals = await constantsRepository.hospitals();
         return null;
       },
     );
