@@ -5,6 +5,7 @@ import 'package:sheryan/app/core/models/hospital_model.dart';
 import 'package:sheryan/app/core/models/notification_model.dart';
 import 'package:sheryan/app/core/models/order_model.dart';
 import 'package:sheryan/app/core/models/pathological_case_model.dart';
+import 'package:sheryan/app/core/services/location_service.dart';
 import 'package:sheryan/app/core/utils/exceptions.dart';
 
 import 'repository_interface.dart';
@@ -51,8 +52,13 @@ class ConstantsRepository extends RepositoryInterface {
 
   Future<List<Hospital>> hospitals() async {
     try {
+      final LatLng currentLocation =
+          await LocationService.instance.getCurrentLocation();
       Response response = await dio.get(RequestRoutes.hospital);
-      return Hospital.hospitals(response.data);
+      List<Hospital> hospitals =
+          Hospital.hospitals(response.data, currentLocation);
+      hospitals.sort((a, b) => a.distance.compareTo(b.distance));
+      return hospitals;
     } catch (error) {
       throw ExceptionHandler(error);
     }
