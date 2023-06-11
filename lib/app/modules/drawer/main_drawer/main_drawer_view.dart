@@ -3,6 +3,7 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:sheryan/app/core/helpers/data_helper.dart';
 import 'package:sheryan/app/modules/drawer/shared/constant/drawer_routes.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/theme/colors.dart';
 import '../../../core/widgets/elevated_button.dart';
@@ -76,16 +77,22 @@ class MainDrawerView extends GetView<MainDrawerController> {
                               route: DrawerRoutes.profileRoute,
                               context: context,
                             ),
-                            drawerItem(
-                              icon: Icons.notifications,
-                              title: "الإشعارات",
-                              route: DrawerRoutes.notificationsRoute,
-                              context: context,
-                            ),
+                            // drawerItem(
+                            //   icon: Icons.notifications,
+                            //   title: "الإشعارات",
+                            //   route: DrawerRoutes.notificationsRoute,
+                            //   context: context,
+                            // ),
                             drawerItem(
                               icon: Icons.fire_truck_outlined,
                               title: "الطلبات السابقة",
                               route: DrawerRoutes.ordersRoute,
+                              context: context,
+                            ),
+                            drawerItem(
+                              icon: Icons.call,
+                              title: "تواصل معنا",
+                              route: "callUs",
                               context: context,
                             ),
                           ],
@@ -175,8 +182,12 @@ class MainDrawerView extends GetView<MainDrawerController> {
           foregroundColor: AppColors.secondry,
         ),
         onPressed: () async {
-          Get.toNamed(route);
-          ZoomDrawer.of(context)?.close();
+          if (route == "callUs") {
+            launchUrl(Uri.parse('tel://0936594895'));
+          } else {
+            Get.toNamed(route);
+            ZoomDrawer.of(context)?.close();
+          }
         },
         child: Row(
           children: [

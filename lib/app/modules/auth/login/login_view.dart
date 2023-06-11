@@ -6,6 +6,7 @@ import 'package:sheryan/app/core/theme/colors.dart';
 import 'package:sheryan/app/core/widgets/elevated_button.dart';
 import 'package:sheryan/app/core/widgets/input_fields.dart';
 import 'package:sheryan/app/modules/auth/shared/constant/auth_routes.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/widgets/widget_state.dart';
 import 'login_controller.dart';
@@ -32,7 +33,7 @@ class LoginView extends GetView<LoginController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "تسجيل دخول",
+          "تسجيل دخول المستخدم",
           style: TextStyle(fontWeight: FontWeight.w900),
         ),
         centerTitle: true,
@@ -139,6 +140,29 @@ class LoginView extends GetView<LoginController> {
                               ),
                             )
                           ],
+                        ),
+                        const SizedBox(height: 10),
+                        const Text("أو"),
+                        const SizedBox(height: 10),
+                        SizedBox(
+                          height: 40,
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.secondryBackground2,
+                            ),
+                            onPressed: () {
+                              launchUrl(Uri.parse('tel://0936594895'));
+                            },
+                            child: const Text(
+                              "اتصال بالدعم",
+                              style: TextStyle(
+                                color: AppColors.font,
+                                fontWeight: FontWeight.w900,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),

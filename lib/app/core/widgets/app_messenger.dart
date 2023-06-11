@@ -9,7 +9,7 @@ class CustomToast {
   CustomToast.showDefault(String message, [bool showToast = false]) {
     BotToast.closeAllLoading();
     if (showToast) {
-      BotToast.showText(text: message);
+      BotToast.showText(text: message, duration: const Duration(seconds: 5));
     } else {
       AppMessenger.message(message);
     }
@@ -31,6 +31,9 @@ class CustomToast {
         break;
       case CustomError.noParamedic:
         message = "لايوجد مسعف متاح";
+        break;
+      case CustomError.notFound:
+        message = "لم يتم العثور على المستخدم";
         break;
 
       default:
@@ -91,6 +94,7 @@ class AppMessenger {
   AppMessenger.message(String message) {
     BotToast.showText(
       text: message,
+      duration: const Duration(seconds: 5),
       contentColor: AppColors.backgroundTextFilled,
       textStyle: const TextStyle(
         fontSize: 16,

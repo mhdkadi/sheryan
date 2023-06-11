@@ -55,10 +55,10 @@ class ExceptionHandler {
         } else {
           if (error.response != null) {
             if (error.response!.statusCode == 409) {
-              if (error.response!.statusMessage == "Conflict") {
+              if (error.response?.statusMessage == "Conflict") {
                 throw CustomException._(
                     CustomError.noParamedic, error.toString());
-              } else if (error.response!.statusMessage ==
+              } else if (error.response?.statusMessage ==
                   "Paramedic not found") {
                 throw CustomException._(
                     CustomError.noParamedic, error.toString());
@@ -69,8 +69,8 @@ class ExceptionHandler {
               throw CustomException._(CustomError.conflict, error.toString());
             }
             if (error.response!.statusCode == 404) {
-              if (checkMessage(error.response!.data, "code not correct")) {
-                throw CustomException._(CustomError.conflict, error.toString());
+              if (error.response?.statusMessage == "Not Found") {
+                throw CustomException._(CustomError.notFound, error.toString());
               }
             }
             if (error.response!.statusCode == 405) {

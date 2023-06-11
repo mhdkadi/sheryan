@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -94,9 +95,11 @@ class MainHomeController extends GetxStateController
   Future<void> order({
     required String pathologicalCase,
   }) async {
+    int menutes = Random().nextInt(6) + 2;
     await requestMethod(
       ids: ["orderWidget"],
-      loadedMessage: "تم استلام طلبك بنجاح المسعف في طريقه إليك",
+      loadedMessage:
+          "تم استلام طلبك بنجاح المسعف في طريقه إليك خلال $menutes دقائق",
       requestType: RequestType.getData,
       function: () async {
         final LatLng currentLocation =

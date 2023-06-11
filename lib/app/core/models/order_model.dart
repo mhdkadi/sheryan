@@ -1,13 +1,12 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:sheryan/app/core/models/pathological_case_model.dart';
 
 class Order {
   final String id;
   final String level;
   final String status;
   final LatLng location;
-  final String user;
-  final String pathologicalCase;
-  final String paramedic;
+  final PathologicalCase pathologicalCase;
   final DateTime createdAt;
 
   Order({
@@ -15,9 +14,7 @@ class Order {
     required this.level,
     required this.status,
     required this.location,
-    required this.user,
     required this.pathologicalCase,
-    required this.paramedic,
     required this.createdAt,
   });
 
@@ -26,9 +23,7 @@ class Order {
         level: json["level"],
         status: json["status"],
         location: LatLng(json["location"]["lat"], json["location"]["lng"]),
-        user: json["user"],
-        pathologicalCase: json["pathologicalCase"],
-        paramedic: json["paramedic"],
+        pathologicalCase: PathologicalCase.fromMap(json["pathologicalCase"]),
         createdAt: DateTime.parse(json["createdAt"]),
       );
 
@@ -40,9 +35,7 @@ class Order {
           "lat": location.latitude,
           "lng": location.longitude,
         },
-        "user": user,
-        "pathologicalCase": pathologicalCase,
-        "paramedic": paramedic,
+        "pathologicalCase": pathologicalCase.toMap(),
         "createdAt": createdAt.toIso8601String(),
       };
   static List<Order> orders(List data) =>
